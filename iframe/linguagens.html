@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)https://www.remove.bg/api -->
+<html >
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>
+    Background Removal API – remove.bg
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="The simplest way to remove image backgrounds programmatically">
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.magnific-popup.min.js"></script>
+
+  <script src="../js/linguagens.js"></script>
+  
+  <link rel="stylesheet" media="screen" href="../css/linguagens.css">
+
+<div class="colorlib-services">
+  <div class="container" style="max-width: 700px;">
+
+    <div class="colorlib-heading animate-box fadeInUp animated-fast">
+      <h2>
+        Get started
+      </h2>
+    </div>
+
+    <ol style="position: relative; top: -20px;">
+      <li>
+        <a href="">Get an API Key</a>. Your first 50 API calls per month are on us (see <a href="https://www.remove.bg/pricing">Pricing</a>).
+      </li>
+      <li>
+        Use the following code samples to get started quickly
+      </li>
+      <li>
+        Review the reference docs to adjust any parameters
+      </li>
+    </ol>
+
+    <div class="sample-code-docs" data-controller="sample-code">
+      <h3 style="margin-top: 30px;">
+        Sample Code
+      </h3>
+
+      <div style="margin-top: 10px;">
+        Remove background from
+      </div>
+      <div>
+        <div class="btn-group" role="group" data-target="sample-code.source">
+          <button type="button" data-action="click-&gt;sample-code#selectSource" data-value="file" class="btn btn-default active">Image File</button>
+          <button type="button" data-action="click-&gt;sample-code#selectSource" data-value="url" class="btn btn-default">Image URL</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 10px;">
+        Environment
+      </div>
+      <div>
+        <div class="btn-group sample-code-environments" role="group" data-target="sample-code.language">
+          <button type="button" data-action="click-&gt;sample-code#selectLanguage" data-value="bash" class="btn btn-default active">cURL</button>
+          <button type="button" data-action="click-&gt;sample-code#selectLanguage" data-value="javascript" class="btn btn-default">Node.js</button>
+          <button type="button" data-action="click-&gt;sample-code#selectLanguage" data-value="python" class="btn btn-default">Python</button>
+          <button type="button" data-action="click-&gt;sample-code#selectLanguage" data-value="ruby" class="btn btn-default">Ruby</button>
+          <button type="button" data-action="click-&gt;sample-code#selectLanguage" data-value="php" class="btn btn-default">PHP</button>
+          <button type="button" data-action="click-&gt;sample-code#selectLanguage" data-value="java" class="btn btn-default">Java</button>
+          <button type="button" data-action="click-&gt;sample-code#selectLanguage" data-value="csharp" class="btn btn-default">.NET</button>
+          <button type="button" data-action="click-&gt;sample-code#selectLanguage" data-value="swift" class="btn btn-default">Swift</button>
+          <button type="button" data-action="click-&gt;sample-code#selectLanguage" data-value="objectivec" class="btn btn-default">Objective-C</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 10px;">
+        Code
+      </div>
+
+          <div data-target="sample-code.code" data-source="file" data-lang="bash" class=""><pre class=" language-bash"><code class=" language-bash">$ <span class="token function">curl</span> -H <span class="token string">'X-API-Key: INSERT_YOUR_API_KEY_HERE'</span>           \
+       -F <span class="token string">'image_file=@/path/to/file.jpg'</span>                 \
+       -F <span class="token string">'size=auto'</span>                                     \
+       -f https://clearbgapi.herokuapp.com/api/ -o no-bg.png
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="file" data-lang="javascript" class="hidden"><pre class=" language-javascript"><code class=" language-javascript"><span class="token comment">// Requires "request" to be installed (see https://www.npmjs.com/package/request)</span>
+<span class="token keyword">var</span> request <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+request<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  url<span class="token punctuation">:</span> <span class="token string">'https://clearbgapi.herokuapp.com/api/'</span><span class="token punctuation">,</span>
+  formData<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    image_file<span class="token punctuation">:</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token string">'/path/to/file.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    size<span class="token punctuation">:</span> <span class="token string">'auto'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'X-Api-Key'</span><span class="token punctuation">:</span> <span class="token string">'INSERT_YOUR_API_KEY_HERE'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  encoding<span class="token punctuation">:</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> response<span class="token punctuation">,</span> body</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Request failed:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>statusCode <span class="token operator">!=</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Error:'</span><span class="token punctuation">,</span> response<span class="token punctuation">.</span>statusCode<span class="token punctuation">,</span> body<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">"no-bg.png"</span><span class="token punctuation">,</span> body<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="file" data-lang="python" class="hidden"><pre class=" language-python"><code class=" language-python"><span class="token comment"># Requires "requests" to be installed (see python-requests.org)</span>
+<span class="token keyword">import</span> requests
+
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>
+    <span class="token string">'https://clearbgapi.herokuapp.com/api/'</span><span class="token punctuation">,</span>
+    files<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'image_file'</span><span class="token punctuation">:</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'/path/to/file.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    data<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'size'</span><span class="token punctuation">:</span> <span class="token string">'auto'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'X-Api-Key'</span><span class="token punctuation">:</span> <span class="token string">'INSERT_YOUR_API_KEY_HERE'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> requests<span class="token punctuation">.</span>codes<span class="token punctuation">.</span>ok<span class="token punctuation">:</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'no-bg.png'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> out<span class="token punctuation">:</span>
+        out<span class="token punctuation">.</span>write<span class="token punctuation">(</span>response<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Error:"</span><span class="token punctuation">,</span> response<span class="token punctuation">.</span>status_code<span class="token punctuation">,</span> response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="file" data-lang="ruby" class="hidden"><pre class=" language-ruby"><code class=" language-ruby"><span class="token comment"># Install "remove_bg" first (https://github.com/remove-bg/ruby)</span>
+<span class="token keyword">require</span> <span class="token string">"remove_bg"</span>
+
+<span class="token constant">RemoveBg</span><span class="token punctuation">.</span>from_file<span class="token punctuation">(</span><span class="token string">"/path/to/file.jpg"</span><span class="token punctuation">,</span>
+  api_key<span class="token punctuation">:</span> <span class="token string">"INSERT_YOUR_API_KEY_HERE"</span>
+<span class="token punctuation">)</span><span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"no-bg.png"</span><span class="token punctuation">)</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="file" data-lang="php" class="hidden"><pre class=" language-php"><code class=" language-php"><span class="token comment">// Requires "guzzle" to be installed (see guzzlephp.org)</span>
+
+<span class="token variable">$client</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GuzzleHttp<span class="token punctuation">\</span>Client</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$client</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'https://clearbgapi.herokuapp.com/api/'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'multipart'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'name'</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'image_file'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'contents'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'/path/to/file.jpg'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'r'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'name'</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'size'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'contents'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'auto'</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'headers'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'X-Api-Key'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'INSERT_YOUR_API_KEY_HERE'</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token double-quoted-string string">"no-bg.png"</span><span class="token punctuation">,</span> <span class="token double-quoted-string string">"wb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">fwrite</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token variable">$res</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="file" data-lang="java" class="hidden"><pre class=" language-java"><code class=" language-java"><span class="token comment">// Requires "Apache HttpComponents" to be installed (see hc.apache.org)</span>
+
+<span class="token class-name">Response</span> response <span class="token operator">=</span> <span class="token class-name">Request</span><span class="token punctuation">.</span><span class="token class-name">Post</span><span class="token punctuation">(</span><span class="token string">"https://clearbgapi.herokuapp.com/api/"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">addHeader</span><span class="token punctuation">(</span><span class="token string">"X-Api-Key"</span><span class="token punctuation">,</span> <span class="token string">"INSERT_YOUR_API_KEY_HERE"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span>
+        <span class="token class-name">MultipartEntityBuilder</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">addBinaryBody</span><span class="token punctuation">(</span><span class="token string">"image_file"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"/path/to/file.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">addTextBody</span><span class="token punctuation">(</span><span class="token string">"size"</span><span class="token punctuation">,</span> <span class="token string">"auto"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+response<span class="token punctuation">.</span><span class="token function">saveContent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"no-bg.png"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="file" data-lang="objectivec" class="hidden"><pre class=" language-objectivec"><code class=" language-objectivec"><span class="token comment">// Requires AFNetworking to be installed (see https://github.com/AFNetworking/AFNetworking)</span>
+
+NSURL <span class="token operator">*</span>fileUrl <span class="token operator">=</span> <span class="token punctuation">[</span>NSBundle<span class="token punctuation">.</span>mainBundle URLForResource<span class="token punctuation">:</span><span class="token string">@"file"</span> withExtension<span class="token punctuation">:</span><span class="token string">@"jpg"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+NSData <span class="token operator">*</span>data <span class="token operator">=</span> <span class="token punctuation">[</span>NSData dataWithContentsOfURL<span class="token punctuation">:</span>fileUrl<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+AFHTTPSessionManager <span class="token operator">*</span>manager <span class="token operator">=</span>
+<span class="token punctuation">[</span><span class="token punctuation">[</span>AFHTTPSessionManager alloc<span class="token punctuation">]</span> initWithSessionConfiguration<span class="token punctuation">:</span>
+ NSURLSessionConfiguration<span class="token punctuation">.</span>defaultSessionConfiguration<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+manager<span class="token punctuation">.</span>responseSerializer <span class="token operator">=</span> <span class="token punctuation">[</span>AFImageResponseSerializer serializer<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span>manager<span class="token punctuation">.</span>requestSerializer setValue<span class="token punctuation">:</span><span class="token string">@"INSERT_YOUR_API_KEY_HERE"</span>
+                 forHTTPHeaderField<span class="token punctuation">:</span><span class="token string">@"X-Api-Key"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+NSURLSessionDataTask <span class="token operator">*</span>dataTask <span class="token operator">=</span> <span class="token punctuation">[</span>manager
+                                  POST<span class="token punctuation">:</span><span class="token string">@"https://clearbgapi.herokuapp.com/api/"</span>
+                                  parameters<span class="token punctuation">:</span>nil
+                                  constructingBodyWithBlock<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>id  _Nonnull formData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                      <span class="token punctuation">[</span>formData appendPartWithFileData<span class="token punctuation">:</span>data
+                                                                  name<span class="token punctuation">:</span><span class="token string">@"image_file"</span>
+                                                              fileName<span class="token punctuation">:</span><span class="token string">@"file.jpg"</span>
+                                                              mimeType<span class="token punctuation">:</span><span class="token string">@"image/jpeg"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                                  <span class="token punctuation">}</span>
+                                  progress<span class="token punctuation">:</span>nil
+                                  success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSURLSessionDataTask <span class="token operator">*</span> _Nonnull task<span class="token punctuation">,</span> id  _Nullable responseObject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>responseObject isKindOfClass<span class="token punctuation">:</span>UIImage<span class="token punctuation">.</span>class<span class="token punctuation">]</span> <span class="token operator">==</span> false<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                          <span class="token keyword">return</span><span class="token punctuation">;</span>
+                                      <span class="token punctuation">}</span>
+
+                                      <span class="token keyword">self</span><span class="token punctuation">.</span>imageView<span class="token punctuation">.</span>image <span class="token operator">=</span> responseObject<span class="token punctuation">;</span>
+                                  <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSURLSessionDataTask <span class="token operator">*</span> _Nullable task<span class="token punctuation">,</span> NSError <span class="token operator">*</span> _Nonnull error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                      <span class="token comment">// Handle error here</span>
+                                  <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span>dataTask resume<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="file" data-lang="swift" class="hidden"><pre class=" language-swift"><code class=" language-swift"><span class="token comment">// Requires Alamofire to be installed (see https://github.com/Alamofire/Alamofire)</span>
+
+<span class="token keyword">guard</span> <span class="token keyword">let</span> fileUrl <span class="token operator">=</span> <span class="token builtin">Bundle</span><span class="token punctuation">.</span>main<span class="token punctuation">.</span><span class="token function">url</span><span class="token punctuation">(</span>forResource<span class="token punctuation">:</span> <span class="token string">"file"</span><span class="token punctuation">,</span> withExtension<span class="token punctuation">:</span> <span class="token string">"jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">?</span> <span class="token function">Data</span><span class="token punctuation">(</span>contentsOf<span class="token punctuation">:</span> fileUrl<span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+
+<span class="token builtin">Alamofire</span>
+    <span class="token punctuation">.</span><span class="token function">upload</span><span class="token punctuation">(</span>
+        multipartFormData<span class="token punctuation">:</span> <span class="token punctuation">{</span> builder <span class="token keyword">in</span>
+            builder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>
+                data<span class="token punctuation">,</span>
+                withName<span class="token punctuation">:</span> <span class="token string">"image_file"</span><span class="token punctuation">,</span>
+                fileName<span class="token punctuation">:</span> <span class="token string">"file.jpg"</span><span class="token punctuation">,</span>
+                mimeType<span class="token punctuation">:</span> <span class="token string">"image/jpeg"</span>
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        to<span class="token punctuation">:</span> <span class="token function">URL</span><span class="token punctuation">(</span>string<span class="token punctuation">:</span> <span class="token string">"https://clearbgapi.herokuapp.com/api/"</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">,</span>
+        headers<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"X-Api-Key"</span><span class="token punctuation">:</span> <span class="token string">"INSERT_YOUR_API_KEY_HERE"</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">)</span> <span class="token punctuation">{</span> result <span class="token keyword">in</span>
+        <span class="token keyword">switch</span> result <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token keyword">let</span> upload<span class="token punctuation">,</span> <span class="token number">_</span><span class="token punctuation">,</span> <span class="token number">_</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            upload<span class="token punctuation">.</span>responseJSON <span class="token punctuation">{</span> imageResponse <span class="token keyword">in</span>
+                <span class="token keyword">guard</span> <span class="token keyword">let</span> imageData <span class="token operator">=</span> imageResponse<span class="token punctuation">.</span>data<span class="token punctuation">,</span>
+                    <span class="token keyword">let</span> image <span class="token operator">=</span> <span class="token function">UIImage</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> imageData<span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+
+                <span class="token keyword">self</span><span class="token punctuation">.</span>imageView<span class="token punctuation">.</span>image <span class="token operator">=</span> image
+            <span class="token punctuation">}</span>
+        <span class="token keyword">case</span> <span class="token punctuation">.</span>failure<span class="token punctuation">:</span>
+            <span class="token keyword">return</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span></code></pre></div>
+          <div data-target="sample-code.code" data-source="file" data-lang="csharp" class="hidden"><pre class=" language-csharp"><code class=" language-csharp"><span class="token keyword">using</span> <span class="token punctuation">(</span><span class="token keyword">var</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HttpClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">using</span> <span class="token punctuation">(</span><span class="token keyword">var</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MultipartFormDataContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    formData<span class="token punctuation">.</span>Headers<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"X-Api-Key"</span><span class="token punctuation">,</span> <span class="token string">"INSERT_YOUR_API_KEY_HERE"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    formData<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ByteArrayContent</span><span class="token punctuation">(</span>File<span class="token punctuation">.</span><span class="token function">ReadAllBytes</span><span class="token punctuation">(</span><span class="token string">"/path/to/file.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"image_file"</span><span class="token punctuation">,</span> <span class="token string">"file.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    formData<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringContent</span><span class="token punctuation">(</span><span class="token string">"auto"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"size"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> response <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">PostAsync</span><span class="token punctuation">(</span><span class="token string">"https://clearbgapi.herokuapp.com/api/"</span><span class="token punctuation">,</span> formData<span class="token punctuation">)</span><span class="token punctuation">.</span>Result<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>IsSuccessStatusCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">FileStream</span> fileStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileStream</span><span class="token punctuation">(</span><span class="token string">"no-bg.png"</span><span class="token punctuation">,</span> FileMode<span class="token punctuation">.</span>Create<span class="token punctuation">,</span> FileAccess<span class="token punctuation">.</span>Write<span class="token punctuation">,</span> FileShare<span class="token punctuation">.</span>None<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        response<span class="token punctuation">.</span>Content<span class="token punctuation">.</span><span class="token function">CopyToAsync</span><span class="token punctuation">(</span>fileStream<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ContinueWith</span><span class="token punctuation">(</span><span class="token punctuation">(</span>copyTask<span class="token punctuation">)</span> <span class="token operator">=&gt;</span><span class="token punctuation">{</span> fileStream<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Error: "</span> <span class="token operator">+</span> response<span class="token punctuation">.</span>Content<span class="token punctuation">.</span><span class="token function">ReadAsStringAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="url" data-lang="bash" class="hidden"><pre class=" language-bash"><code class=" language-bash">$ <span class="token function">curl</span> -H <span class="token string">'X-API-Key: INSERT_YOUR_API_KEY_HERE'</span>           \
+       -F <span class="token string">'image_url=https://www.remove.bg/example.jpg'</span>   \
+       -F <span class="token string">'size=auto'</span>                                     \
+       -f https://clearbgapi.herokuapp.com/api/ -o no-bg.png
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="url" data-lang="javascript" class="hidden"><pre class=" language-javascript"><code class=" language-javascript"><span class="token comment">// Requires "request" to be installed (see https://www.npmjs.com/package/request)</span>
+<span class="token keyword">var</span> request <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+request<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  url<span class="token punctuation">:</span> <span class="token string">'https://clearbgapi.herokuapp.com/api/'</span><span class="token punctuation">,</span>
+  formData<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    image_url<span class="token punctuation">:</span> <span class="token string">'https://www.remove.bg/example.jpg'</span><span class="token punctuation">,</span>
+    size<span class="token punctuation">:</span> <span class="token string">'auto'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'X-Api-Key'</span><span class="token punctuation">:</span> <span class="token string">'INSERT_YOUR_API_KEY_HERE'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  encoding<span class="token punctuation">:</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> response<span class="token punctuation">,</span> body</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Request failed:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>statusCode <span class="token operator">!=</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Error:'</span><span class="token punctuation">,</span> response<span class="token punctuation">.</span>statusCode<span class="token punctuation">,</span> body<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  fs<span class="token punctuation">.</span><span class="token function">writeFileSync</span><span class="token punctuation">(</span><span class="token string">"no-bg.png"</span><span class="token punctuation">,</span> body<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="url" data-lang="python" class="hidden"><pre class=" language-python"><code class=" language-python"><span class="token comment"># Requires "requests" to be installed (see python-requests.org)</span>
+<span class="token keyword">import</span> requests
+
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>
+    <span class="token string">'https://clearbgapi.herokuapp.com/api/'</span><span class="token punctuation">,</span>
+    data<span class="token operator">=</span><span class="token punctuation">{</span>
+        <span class="token string">'image_url'</span><span class="token punctuation">:</span> <span class="token string">'https://www.remove.bg/example.jpg'</span><span class="token punctuation">,</span>
+        <span class="token string">'size'</span><span class="token punctuation">:</span> <span class="token string">'auto'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'X-Api-Key'</span><span class="token punctuation">:</span> <span class="token string">'INSERT_YOUR_API_KEY_HERE'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> requests<span class="token punctuation">.</span>codes<span class="token punctuation">.</span>ok<span class="token punctuation">:</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'no-bg.png'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> out<span class="token punctuation">:</span>
+        out<span class="token punctuation">.</span>write<span class="token punctuation">(</span>response<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Error:"</span><span class="token punctuation">,</span> response<span class="token punctuation">.</span>status_code<span class="token punctuation">,</span> response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="url" data-lang="ruby" class="hidden"><pre class=" language-ruby"><code class=" language-ruby"><span class="token comment"># Install "remove_bg" first (https://github.com/remove-bg/ruby)</span>
+<span class="token keyword">require</span> <span class="token string">"remove_bg"</span>
+
+<span class="token constant">RemoveBg</span><span class="token punctuation">.</span>from_url<span class="token punctuation">(</span><span class="token string">"https://www.remove.bg/example.jpg"</span><span class="token punctuation">,</span>
+  api_key<span class="token punctuation">:</span> <span class="token string">"INSERT_YOUR_API_KEY_HERE"</span>
+<span class="token punctuation">)</span><span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"no-bg.png"</span><span class="token punctuation">)</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="url" data-lang="php" class="hidden"><pre class=" language-php"><code class=" language-php"><span class="token comment">// Requires "guzzle" to be installed (see guzzlephp.org)</span>
+
+<span class="token variable">$client</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GuzzleHttp<span class="token punctuation">\</span>Client</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$client</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'https://clearbgapi.herokuapp.com/api/'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'multipart'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'name'</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'image_url'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'contents'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'https://www.remove.bg/example.jpg'</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'name'</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'size'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'contents'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'auto'</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'headers'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'X-Api-Key'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'INSERT_YOUR_API_KEY_HERE'</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token double-quoted-string string">"no-bg.png"</span><span class="token punctuation">,</span> <span class="token double-quoted-string string">"wb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">fwrite</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token variable">$res</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="url" data-lang="java" class="hidden"><pre class=" language-java"><code class=" language-java"><span class="token comment">// Requires "Apache HttpComponents" to be installed (see hc.apache.org)</span>
+
+<span class="token class-name">Response</span> response <span class="token operator">=</span> <span class="token class-name">Request</span><span class="token punctuation">.</span><span class="token class-name">Post</span><span class="token punctuation">(</span><span class="token string">"https://clearbgapi.herokuapp.com/api/"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">addHeader</span><span class="token punctuation">(</span><span class="token string">"X-Api-Key"</span><span class="token punctuation">,</span> <span class="token string">"INSERT_YOUR_API_KEY_HERE"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span>
+        <span class="token class-name">MultipartEntityBuilder</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">addTextBody</span><span class="token punctuation">(</span><span class="token string">"image_url"</span><span class="token punctuation">,</span> <span class="token string">"https://www.remove.bg/example.jpg"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">addTextBody</span><span class="token punctuation">(</span><span class="token string">"size"</span><span class="token punctuation">,</span> <span class="token string">"auto"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+response<span class="token punctuation">.</span><span class="token function">saveContent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"no-bg.png"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="url" data-lang="objectivec" class="hidden"><pre class=" language-objectivec"><code class=" language-objectivec"><span class="token comment">// Requires AFNetworking to be installed (see https://github.com/AFNetworking/AFNetworking)</span>
+
+AFHTTPSessionManager <span class="token operator">*</span>manager <span class="token operator">=</span>
+<span class="token punctuation">[</span><span class="token punctuation">[</span>AFHTTPSessionManager alloc<span class="token punctuation">]</span> initWithSessionConfiguration<span class="token punctuation">:</span>
+ NSURLSessionConfiguration<span class="token punctuation">.</span>defaultSessionConfiguration<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+manager<span class="token punctuation">.</span>responseSerializer <span class="token operator">=</span> <span class="token punctuation">[</span>AFImageResponseSerializer serializer<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span>manager<span class="token punctuation">.</span>requestSerializer setValue<span class="token punctuation">:</span><span class="token string">@"INSERT_YOUR_API_KEY_HERE"</span>
+                 forHTTPHeaderField<span class="token punctuation">:</span><span class="token string">@"X-Api-Key"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+NSURLSessionDataTask <span class="token operator">*</span>dataTask <span class="token operator">=</span> <span class="token punctuation">[</span>manager
+                                  POST<span class="token punctuation">:</span><span class="token string">@"https://clearbgapi.herokuapp.com/api/"</span>
+                                  parameters<span class="token punctuation">:</span><span class="token operator">@</span><span class="token punctuation">{</span><span class="token string">@"image_url"</span><span class="token punctuation">:</span> <span class="token string">@"https://www.remove.bg/example.jpg"</span><span class="token punctuation">}</span>
+                                  progress<span class="token punctuation">:</span>nil
+                                  success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSURLSessionDataTask <span class="token operator">*</span> _Nonnull task<span class="token punctuation">,</span> id  _Nullable responseObject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>responseObject isKindOfClass<span class="token punctuation">:</span>UIImage<span class="token punctuation">.</span>class<span class="token punctuation">]</span> <span class="token operator">==</span> false<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                          <span class="token keyword">return</span><span class="token punctuation">;</span>
+                                      <span class="token punctuation">}</span>
+
+                                      <span class="token keyword">self</span><span class="token punctuation">.</span>imageView<span class="token punctuation">.</span>image <span class="token operator">=</span> responseObject<span class="token punctuation">;</span>
+                                  <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSURLSessionDataTask <span class="token operator">*</span> _Nullable task<span class="token punctuation">,</span> NSError <span class="token operator">*</span> _Nonnull error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                      <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@"ERROR"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                  <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span>dataTask resume<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div>
+          <div data-target="sample-code.code" data-source="url" data-lang="swift" class="hidden"><pre class=" language-swift"><code class=" language-swift"><span class="token comment">// Requires Alamofire to be installed (see https://github.com/Alamofire/Alamofire)</span>
+
+<span class="token builtin">Alamofire</span>
+    <span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span>
+        <span class="token function">URL</span><span class="token punctuation">(</span>string<span class="token punctuation">:</span> <span class="token string">"https://clearbgapi.herokuapp.com/api/"</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">,</span>
+        method<span class="token punctuation">:</span> <span class="token punctuation">.</span>post<span class="token punctuation">,</span>
+        parameters<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"image_url"</span><span class="token punctuation">:</span> <span class="token string">"https://www.remove.bg/example.jpg"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        encoding<span class="token punctuation">:</span> <span class="token function">URLEncoding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        headers<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token string">"X-Api-Key"</span><span class="token punctuation">:</span> <span class="token string">"INSERT_YOUR_API_KEY_HERE"</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>responseData <span class="token punctuation">{</span> imageResponse <span class="token keyword">in</span>
+        <span class="token keyword">guard</span> <span class="token keyword">let</span> imageData <span class="token operator">=</span> imageResponse<span class="token punctuation">.</span>data<span class="token punctuation">,</span>
+            <span class="token keyword">let</span> image <span class="token operator">=</span> <span class="token function">UIImage</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> imageData<span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+
+        <span class="token keyword">self</span><span class="token punctuation">.</span>imageView<span class="token punctuation">.</span>image <span class="token operator">=</span> image
+    <span class="token punctuation">}</span></code></pre></div>
+          <div data-target="sample-code.code" data-source="url" data-lang="csharp" class="hidden"><pre class=" language-csharp"><code class=" language-csharp"><span class="token keyword">using</span> <span class="token punctuation">(</span><span class="token keyword">var</span> client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HttpClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">using</span> <span class="token punctuation">(</span><span class="token keyword">var</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MultipartFormDataContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    formData<span class="token punctuation">.</span>Headers<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"X-Api-Key"</span><span class="token punctuation">,</span> <span class="token string">"INSERT_YOUR_API_KEY_HERE"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    formData<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringContent</span><span class="token punctuation">(</span><span class="token string">"https://www.remove.bg/example.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"image_url"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    formData<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringContent</span><span class="token punctuation">(</span><span class="token string">"auto"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"size"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> response <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">PostAsync</span><span class="token punctuation">(</span><span class="token string">"https://clearbgapi.herokuapp.com/api/"</span><span class="token punctuation">,</span> formData<span class="token punctuation">)</span><span class="token punctuation">.</span>Result<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>IsSuccessStatusCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">FileStream</span> fileStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileStream</span><span class="token punctuation">(</span><span class="token string">"no-bg.png"</span><span class="token punctuation">,</span> FileMode<span class="token punctuation">.</span>Create<span class="token punctuation">,</span> FileAccess<span class="token punctuation">.</span>Write<span class="token punctuation">,</span> FileShare<span class="token punctuation">.</span>None<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        response<span class="token punctuation">.</span>Content<span class="token punctuation">.</span><span class="token function">CopyToAsync</span><span class="token punctuation">(</span>fileStream<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ContinueWith</span><span class="token punctuation">(</span><span class="token punctuation">(</span>copyTask<span class="token punctuation">)</span> <span class="token operator">=&gt;</span><span class="token punctuation">{</span> fileStream<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Error: "</span> <span class="token operator">+</span> response<span class="token punctuation">.</span>Content<span class="token punctuation">.</span><span class="token function">ReadAsStringAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+    </div>
+  </div>
+</div>
